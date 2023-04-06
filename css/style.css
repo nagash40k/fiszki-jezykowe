@@ -1,9 +1,30 @@
 .carousel-item{
     background-color: rgb(147, 90, 255);
-    height: 500px;
+    min-height: 500px;
+    
 }
 
 .carousel-caption{
-    bottom: 50% !important;
-    padding-bottom: 0 !important;
+    /*background-color: red;*/
+    top: 25% !important;
+    
+}
+
+.flag{
+    height: 100px;
+    width: auto;
+
+}
+
+.flag-sm{
+    height: 60px;
+    width: auto;
+    border-color: rgb(147, 90, 255);
+
+}
+
+.test{
+    width:50px;
+    height: 50px;
+    background-color:  red;
 }

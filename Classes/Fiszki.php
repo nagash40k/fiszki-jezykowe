@@ -26,15 +26,18 @@ class Fiszki extends Dbh {
         return rand(1, $this->wordsCount);
     }
 
-    public function getWord(){
-        $wordNo = $this->rollRandomWord() - 1;
+    public function getWord($word_id){
+        $wordNo = $word_id - 1;
+        echo $wordNo;
         $sql = "SELECT 
+                    `translations`.`id_word_1` as `lang1_word_id`,
                     `lang1`.`id_lang` as `lang1_id`,
                     `lang1`.`word` as `lang1_word`,
-                    `lang1`.`description` as `lang1_desc`,
+                    `lang1`.`pronunciation` as `lang1_word_id_pronunciation`,
+                    `translations`.`id_word_2` as `lang2_word_id`,
                     `lang2`.`id_lang` as `lang2_id`,
                     `lang2`.`word` as `lang2_word`,
-                    `lang2`.`description` as `lang2_desc`                    
+                    `lang2`.`pronunciation` as `lang2_word_id_pronunciation`                             
                 FROM 
                     `translations`
                 JOIN 
@@ -55,9 +58,54 @@ class Fiszki extends Dbh {
 
         $stmt->execute();
         $result = $stmt->fetchAll();
+      
         return $result[0];
+    
+
 
     }
+
+    public function getDescription(int $id){
+        $sql = "SELECT 
+                `description`                                     
+                FROM 
+                    `descriptions`             
+                WHERE 
+                    `id_word` = {$id}
+            ";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute();
+               
+        if ( $result = $stmt->fetchAll() ){
+           
+            return $result[0]['description'];
+        }
+
+        return false;
+    }
+
+    public function getDescription1(int $id){
+        $sql = "SELECT 
+                `description`                                     
+                FROM 
+                    `descriptions`             
+                WHERE 
+                    `id_word` = {$id}
+            ";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute();
+               
+        if ( $result = $stmt->fetchAll() ){
+           
+            return $result[0]['description'];
+        }
+
+        return false;
+    }    
 
 
     private function countWords(){
