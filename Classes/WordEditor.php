@@ -9,6 +9,24 @@ class WordEditor extends Fiszki {
         $this->countWords();
     }
 
+    public function editWord(int $wordId, string $word, string $pronunciation){
+
+        $sql = "UPDATE 
+                    `words`
+                SET
+                    `word` = ?,
+                    `pronunciation` = ?
+                WHERE 
+                    `id` = ?              
+        ;";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute([$word, $pronunciation, $wordId]);
+
+
+    }
+
     public function getWordList(int $page, int $pagination, string $sortCol, string $sortType = 'ASC'){
         // $page - numer strony
         // $pagination - ilość słów na stronę 

@@ -3,6 +3,8 @@
 <html lang="en" data-bs-theme="auto">
 <head>
   <script src="/docs/5.3/assets/js/color-modes.js"></script>
+  <script src="js/jquery-3.6.3.min.js"></script>
+  <script src="js/functions.js"></script>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,3 +23,9 @@
 
 </head>
 <body>
+
+<?php
+
+include('lang/pl-PL.php');
+
+?>

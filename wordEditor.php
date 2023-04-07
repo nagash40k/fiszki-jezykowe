@@ -25,6 +25,10 @@ $jezyk = new WordEditor($lang_id);
 $page = 1;
 $pagination = 10;
 
+
+//include('views/wordEditor/add_word.php');
+
+
 include('views/wordEditor/word_list_head.php');
 
 $wordList = $jezyk->getWordList($page, $pagination, SORT_DEFAULT);
@@ -49,8 +53,13 @@ include('views/wordEditor/word_list_footer.php');
 
 
 
+
+include('views/wordEditor/wordEdit_popup.php');
+
+
+
 echo '<pre>';
-var_dump($jezyk->getWordList($page, $pagination, SORT_DEFAULT));
+//var_dump($jezyk->getWordList($page, $pagination, SORT_DEFAULT));
 echo '</pre>';
       
 
@@ -58,7 +67,18 @@ echo '</pre>';
 </main>
 
 
+<script>
+    const myModal = document.getElementById('myModal')
+    const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
+</script>
+
 <?php
     unset($jezyk);
     include('views/theme/footer.php');
 ?>
+
+

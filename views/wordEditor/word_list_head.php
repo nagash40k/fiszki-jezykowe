@@ -3,19 +3,19 @@
         <thead>
         <tr>
             <th>
-                Lp.          
+                <?=$lang['no.']?>
             </th>
             <th>
-                Słowo          
+                <?=$lang['word']?>          
             </th>
             <th>     
-                Wymowa       
+                <?=$lang['pronunciation']?>
             </th>
             <th>      
-                Opis      
+                <?=$lang['description']?>      
             </th>
             <th>      
-                Akcje      
+                <?=$lang['actions']?>      
             </th>
         </tr>
         </thead>

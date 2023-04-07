@@ -2,14 +2,14 @@
 
 
 
-    <tr id="word-<?=$wordId?>">
+    <tr>
         <td>
             <?=$lp?>
         </td>
-        <td>
+        <td id="word-<?=$wordId?>">
             <?=$wordName?>
         </td>
-        <td>
+        <td id="pronunciation-<?=$wordId?>">
             <?=$wordPronunciation?>
         </td>
         <td style="text-align:initial">
@@ -31,7 +31,9 @@
 
         </td>
         <td class="align-middle">
-            <button id="edit-word-<?=$wordId?>" class="btn btn-primary btn" type="button">Edytuj</button>
+            <button id="edit-word-<?=$wordId?>" class="btn btn-primary btn word-edit" type="button" data-bs-toggle="modal" data-bs-target="#wordEditModal">
+                <?=$lang['edit']?>
+            </button>
         </td>
     </tr>
-
+<!--edit-word-<?=$wordId?>-->
