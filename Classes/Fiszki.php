@@ -1,20 +1,11 @@
 <?php
 
-define('T_TABLE_NAME',      'time_table');  // nazwa tabeli
-define('T_TABLE_ID',        'id');
-define('T_TABLE_OBJ_ID',    'object_id');
-define('T_TABLE_USER_ID',    'user_id');
-define('T_TABLE_T_START',   'time_start');
-define('T_TABLE_T_END',     'time_end');
-
-
-
 require_once 'Dbh.php';
 
 class Fiszki extends Dbh {
 
-    public $langId = 0;
-    private $wordsCount = 0;
+    protected $langId = 0;
+    protected $wordsCount = 0;
 
     public function __construct(int $langId){
         $this->langId = $langId;
@@ -86,29 +77,7 @@ class Fiszki extends Dbh {
         return false;
     }
 
-    public function getDescription1(int $id){
-        $sql = "SELECT 
-                `description`                                     
-                FROM 
-                    `descriptions`             
-                WHERE 
-                    `id_word` = {$id}
-            ";
-
-        $stmt = $this->connect()->prepare($sql);
-
-        $stmt->execute();
-               
-        if ( $result = $stmt->fetchAll() ){
-           
-            return $result[0]['description'];
-        }
-
-        return false;
-    }    
-
-
-    private function countWords(){
+    protected function countWords(){
         $sql = "SELECT COUNT(*) as 'count'
                 FROM `translations` 
                 WHERE `id_lang` = {$this->langId};";

@@ -17,6 +17,7 @@ class Dbh {
             # Ustawienie atrybutu któy odpowiada za sposób w jaki zwracana są dane z bazy
             # W tym przypadku ustawione jest na pobieranie w postaci tablicy asocjacyjnej
             $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            $pdo->exec("set names utf8mb4");
 
             return $pdo;
         } catch ( PDOException $e ) {

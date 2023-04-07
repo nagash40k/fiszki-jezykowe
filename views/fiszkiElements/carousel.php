@@ -27,7 +27,7 @@ if ( $word['lang1_id'] == $main_lang ){
 }
 
 
-include('views/toggle_main_lang.php');
+include('views/fiszkiElements/toggle_main_lang.php');
 ?>
 
 

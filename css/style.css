@@ -28,3 +28,16 @@
     height: 50px;
     background-color:  red;
 }
+
+.word-description{
+    text-align: left !important;
+    
+}
+
+.word-description-source{
+    font-style: italic;
+    text-align: right !important;
+    float: right;
+    color: rgb(56, 56, 56) !important;
+    margin-right: 5%;
+}
