@@ -5,7 +5,11 @@
   include('views/theme/navbar.php');
 
   include('inc/defines.php');
+
+echo 'test remote repository';
 ?>
+
+
 
 
 <main>
