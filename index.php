@@ -6,7 +6,7 @@
 
   include('inc/defines.php');
 
-echo 'test remote repository';
+echo 'test remote repository kolejny test';
 ?>
 
 
